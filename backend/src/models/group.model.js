@@ -22,12 +22,10 @@ const groupSchema = new mongoose.Schema({
         ref: 'User'
     },
     members: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User'
+        type: [String],
     },
     candidates: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User'
+        type: [String],
     },
     guidingQuestions: {
         type: [String]

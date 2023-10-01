@@ -14,7 +14,7 @@ const createGroup = async (req, res) => {
             description,
             accessCode: v4(),
             organizerId: req.user_id,
-            members: [req.user_id],
+            members: [req.username],
             candidates: candidates,
             guidingQuestions,
             status: 'open'
