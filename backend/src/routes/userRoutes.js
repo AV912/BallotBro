@@ -13,6 +13,7 @@ router.put('/user', verifyToken, validateFields, updateUser);
 router.delete('/user', verifyToken, deleteUser);
 
 // Requirements functions
+
 router.post('/login', isLoggedIn, login);
 
 router.post('/logout', verifyToken, logout);

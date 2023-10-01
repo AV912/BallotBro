@@ -6,12 +6,14 @@ require('dotenv').config();
 //basic DB functions
 const createUser = async (req, res) => {
     try {
-        let {username, email, password} = req.body;
+        let {username, email, password, firstName, lastName} = req.body;
 
         const user = new User({
             username,
             email,
-            password, 
+            password,
+            firstName,
+            lastName,
             groups: []
         });
 
@@ -30,7 +32,7 @@ const createUser = async (req, res) => {
         // Send res to user
         res.json({auth: true, token});
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({message: 'createUser: ' + error.message});
     }
 };
 
@@ -43,13 +45,13 @@ const getUser = async (req, res) => {
         
         return res.json(user);
     } catch (error) {
-        res.status(500).json({message: error});
+        res.status(500).json({message: 'getUser:' +  error});
     }
 };
 
 const updateUser = async (req, res) => {
     try {
-        let {username, email, password} = req.body;
+        let {username, email, password, firstName, lastName} = req.body;
 
         const user = await User.findByIdAndUpdate(req.user_id, {
             username,
@@ -77,9 +79,10 @@ const deleteUser = async (req, res) => {
 //required functions
 const login = async (req, res) => {
     try {
-        let {user_identifier, password} = req.body;
+        console.log(req.body);
+        let {username, password} = req.body;
         // Find the user with the username or email given
-        const user = await User.findOne({username: user_identifier}) || await User.findOne({email: user_identifier});
+        const user = await User.findOne({username: username}) || await User.findOne({email: username});
 
         // If the username doesn't exist.
         if (!user) return res.json({message: "The given username or email doesn't exist."});

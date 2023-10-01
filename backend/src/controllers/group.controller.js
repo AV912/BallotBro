@@ -229,7 +229,7 @@ const joinGroup = async (req, res) => {
         user.groups.push({
             group_id: group._id,
             traits: [], 
-            role: 'organizer'
+            role: role
         });
         await user.save();
 

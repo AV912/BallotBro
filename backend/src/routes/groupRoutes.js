@@ -5,7 +5,7 @@ const {verifyToken, isLoggedIn} = require('./../controllers/auth.controller');
 const validateFields = require('./../controllers/validation.controller');
 
 // Basic DB operations
-router.post('/groups', isLoggedIn, validateFields, createGroup);
+router.post('/groups', verifyToken, createGroup);
 router.get('/groups', verifyToken, getGroup);
 router.delete('/groups', verifyToken, deleteGroup);
 
@@ -15,5 +15,6 @@ router.delete('/group/candidate', verifyToken, removeCandidate);
 router.post('/group/member', verifyToken, addMember);
 router.delete('/group/member', verifyToken, removeMember);
 router.get('/user/groups', verifyToken, getGroups);
+router.post('/groups/join', verifyToken, joinGroup);
 
 module.exports = router;

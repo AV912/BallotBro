@@ -1,12 +1,12 @@
 const validateFields = (req, res, next) => {
     try {
         let {username, email} = req.body;
-
+        
         // Username validation
         const username_regex = /^[a-zA-Z0-9\-]+$/;
 
         if (!username_regex.test(username)) return res.status(401).json({message: 'The username just can contain this characters: a-z A-Z 0-9 -'});
-
+        
         // Email validation
         if (email.length > 254) return res.status(401).json({message: 'The email is too long.'});
 
@@ -21,7 +21,7 @@ const validateFields = (req, res, next) => {
 
         next();
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({message: 'validateFields:' + error.message});
     }
 };
 
