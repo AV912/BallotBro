@@ -26,7 +26,6 @@ const createUser = async (req, res) => {
         const token = jwt.sign({
             id: user._id,
             username: user.username,
-            friends: user.friends
         }, process.env.JWTPRIVATEKEY, {expiresIn: '24h'});
 
         // Send res to user
