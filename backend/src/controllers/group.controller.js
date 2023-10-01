@@ -7,7 +7,7 @@ const {v4} = require('uuid');
 //basic DB functions
 const createGroup = async (req, res) => {
     try {
-        let {title, description, guidingQuestions} = req.body;
+        let {title, description, guidingQuestions, candidates} = req.body;
 
         const group = new Group({
             title,
@@ -15,7 +15,7 @@ const createGroup = async (req, res) => {
             accessCode: v4(),
             organizerId: req.user_id,
             members: [req.user_id],
-            candidates: [],
+            candidates: candidates,
             guidingQuestions,
             status: 'open'
         });
