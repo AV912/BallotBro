@@ -1,4 +1,5 @@
 const User = require('./../models/user.model.js');
+const Group = require('./../models/group.model.js');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
@@ -113,6 +114,7 @@ const logout = (req, res) => {
         res.status(500).json({auth: false, message: error.message});
     }
 };
+
 
 module.exports = {
     createUser,

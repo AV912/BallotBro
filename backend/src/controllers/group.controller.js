@@ -237,3 +237,17 @@ const joinGroup = async (req, res) => {
         res.status(500).json({message: error});
     }
 };
+
+module.exports = {
+    createGroup,
+    getGroup,
+    deleteGroup,
+    addCandidate,
+    removeCandidate,
+    addMember,
+    removeMember,
+    getGroups,
+    getGroupCandidates,
+    getGroupMembers,
+    joinGroup
+}
