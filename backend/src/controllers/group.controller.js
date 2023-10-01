@@ -238,6 +238,40 @@ const joinGroup = async (req, res) => {
     }
 };
 
+const openai = require('openai');
+openai.setApiKey("sk-...zgTf");
+const gainInsights = async(req,res) => {
+    try {
+        let {user_id, group_id} = req.body;
+        const user = await User.findById(user_id);
+        const group = await Group.findById(group_id);
+        let userTraits = user.groups.filter(group => group.group_id == group_id)[0].traits;
+        //create a map of candidates to their traits
+        let candidateTraits = {};
+        for (let candidate of group.candidates) {
+            let candidateUser = await User.findById(candidate);
+            candidateTraits[candidate] = candidateUser.groups.filter(group => group.group_id == group_id)[0].traits;
+        }
+        // pass in the user's traits and the candidates' traits to the openai api and get back a list of insights picking the candidate that best fits the user
+        const prompt = "Given the following traits of a user and candidates, match the best candidate for the user and explain why:\n\nUser Traits: [user_traits]\nCandidates:\n1. [candidate_1_traits]\n2. [candidate_2_traits]\n3. [candidate_3_traits]";
+
+        const response = await openai.Completion.create({
+            engine: "davinci",  // Use the appropriate engine
+            prompt,
+            max_tokens: 100  // Adjust as needed
+        });
+
+        const explanation = response.choices[0].text;
+        const bestCandidate = explanation.split(" ")[0];
+        // return the best candidate and the explanation
+        res.json({bestCandidate, explanation});
+        
+    } catch (error) {
+        res.status(500).json({message: error});
+    }
+};
+
+
 module.exports = {
     createGroup,
     getGroup,

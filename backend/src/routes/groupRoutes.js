@@ -16,5 +16,6 @@ router.post('/group/member', verifyToken, addMember);
 router.delete('/group/member', verifyToken, removeMember);
 router.get('/user/groups', verifyToken, getGroups);
 router.post('/groups/join', verifyToken, joinGroup);
+router.post('/user/group/insights', verifyToken, gainInsights);
 
 module.exports = router;
