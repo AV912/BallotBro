@@ -1,0 +1,11 @@
+#candidates-main {
+    max-width: 900px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#who-vote-for-button-main {
+    position: fixed;
+    bottom: 30px;
+}

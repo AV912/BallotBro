@@ -1,0 +1,19 @@
+#group-main {
+    width: 78%;
+}
+
+#group-main-header {
+    padding: 17px;
+    border-bottom: 1px solid #ddd;
+}
+
+#group-main-main {
+
+}
+
+#traits-main {
+    width: 900px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

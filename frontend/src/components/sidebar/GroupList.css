@@ -1,0 +1,10 @@
+.group-list-main {
+    padding: 10px 20px;
+}
+
+.group-list-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
