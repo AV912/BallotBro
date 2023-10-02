@@ -4,7 +4,7 @@ import './GroupList.css';
 function GroupList({ title, groups }) {
     return (
         <div className='group-list-main'>
-            <p className='group-list-title font-bold text-inherit text-2xl'>{ title }</p>
+            <p className='group-list-title font-semibold text-inherit text-2xl'>{ title }</p>
             <div className='group-list-list'>
                 { groups.map(
                     group => 

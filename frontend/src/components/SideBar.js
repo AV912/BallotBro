@@ -35,7 +35,7 @@ function SideBar() {
         <div id='sidebar'>
             <div id='sidebar-header'>
                 <BiMenu className='icon-30' />
-                <p className="font-bold text-inherit text-2xl">My Groups</p>
+                <p className="font-bold text-inherit text-2xl">BallotBro</p>
                 <Button isIconOnly color="primary" aria-label="Like" onPress={onOpen}>
                     <BiPlus className='icon-24'/>
                 </Button>

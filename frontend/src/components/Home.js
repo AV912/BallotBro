@@ -2,7 +2,6 @@ import './Home.css';
 import React from "react";
 import { Tabs, Tab, Input, Link, Button, Card, CardBody } from "@nextui-org/react";
 import axios from 'axios';
-import { redirect } from "react-router-dom";
 
 function Home() {
     const [selected, setSelected] = React.useState("login");
