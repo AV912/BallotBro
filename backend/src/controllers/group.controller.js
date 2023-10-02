@@ -164,7 +164,7 @@ const removeMember = async (req, res) => {
 
 const getGroups = async (req, res) => {
     try {
-        const groups = await Group.find({members: req.user_id});
+        const groups = await User.findById(req.user_id).groups;
 
         return res.json(groups);
     } catch (error) {
@@ -239,7 +239,8 @@ const joinGroup = async (req, res) => {
 };
 
 const openai = require('openai');
-openai.setApiKey("sk-...zgTf");
+const apiKey = 'sk-...zgTf';
+
 const gainInsights = async(req,res) => {
     try {
         let {user_id, group_id} = req.body;
@@ -265,7 +266,7 @@ const gainInsights = async(req,res) => {
         const bestCandidate = explanation.split(" ")[0];
         // return the best candidate and the explanation
         res.json({bestCandidate, explanation});
-        
+
     } catch (error) {
         res.status(500).json({message: error});
     }
@@ -283,5 +284,6 @@ module.exports = {
     getGroups,
     getGroupCandidates,
     getGroupMembers,
-    joinGroup
+    joinGroup, 
+    gainInsights
 }

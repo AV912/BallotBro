@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {createGroup, getGroup, deleteGroup, addCandidate, removeCandidate, addMember, removeMember, 
-    getGroups, getGroupCandidates, getGroupMembers, joinGroup} = require('./../controllers/group.controller');
+    getGroups, getGroupCandidates, getGroupMembers, joinGroup, gainInsights} = require('./../controllers/group.controller');
 const {verifyToken, isLoggedIn} = require('./../controllers/auth.controller');
 const validateFields = require('./../controllers/validation.controller');
 

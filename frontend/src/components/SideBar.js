@@ -11,7 +11,7 @@ function SideBar() {
 
     const [groups, setGroups] = useState([]);
 
-    const url = 'http://localhost:5000/';
+    const url = 'http://localhost:3000/';
 
     useEffect(() => {
         async function getGroups() {

@@ -6,7 +6,7 @@ import axios from 'axios';
 function Home() {
     const [selected, setSelected] = React.useState("login");
 
-    const url = 'http://localhost:5000/';
+    const url = 'http://localhost:3000/';
     
     async function signUp() {
         const data = {
@@ -125,12 +125,12 @@ function Home() {
                                     variant='bordered' />
                                 <p className="text-center text-small">
                                     Already have an account?{" "}
-                                    <Link size="sm" onPress={() => setSelected("login")}>
+                                    <Link size="sm" onClick={() => setSelected("login")}>
                                         Login
                                     </Link>
                                 </p>
                                 <div className="flex gap-2 justify-end">
-                                    <Button fullWidth color="primary" onPress={ signUp }>
+                                    <Button fullWidth color="primary" onClick={ signUp }>
                                         Sign up
                                     </Button>
                                 </div>

@@ -5,7 +5,7 @@ import { BiLockAlt } from 'react-icons/bi';
 
 function NewGroupModal({ isOpen, onOpenChange }) {
 
-    const url = 'http://localhost:5000/';
+    const url = 'http://localhost:3000/';
 
     async function createGroup() {
         const data = {
@@ -85,10 +85,10 @@ function NewGroupModal({ isOpen, onOpenChange }) {
                             </Accordion>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="danger" variant="flat" onPress={onClose}>
+                            <Button color="danger" variant="flat" onClick={onClose}>
                                 Close
                             </Button>
-                            <Button color="primary" onPress={createGroup}>
+                            <Button color="primary" onClick={createGroup}>
                                 Submit
                             </Button>
                         </ModalFooter>
